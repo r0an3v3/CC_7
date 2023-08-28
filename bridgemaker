@@ -1,4 +1,4 @@
---v0.4
+--v0.5
 --on switch based on fuel level
 --fills up "holes" based on length to make bridge
 --actual width is length+1
@@ -31,9 +31,10 @@ function filler()
         if turtle.placeDown() then
             print("placing from ", i)
             break
+        elseif i==16 and turtle.placeDown() == false then
+            printError("no more blocks for placing")
+            error()
         end
-        printError("no more blocks for placing")
-        error()
     end
 end
 
