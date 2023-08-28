@@ -46,6 +46,7 @@ while true do
         end
         
         turnCheck(1)    --turn left
+        filler()
         moveCheck()     --move forward
         turnCheck(1)    --turn left
 
@@ -54,6 +55,7 @@ while true do
             moveCheck()
         end
         turnCheck(2)
+        filler()
         moveCheck()
     end
 
