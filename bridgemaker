@@ -74,7 +74,7 @@ while true do
 
     print("attempting to refuel")
 
-    for n=1,4 do
+    for n=1,16 do
         turtle.select(n)
         if turtle.refuel() then
             print("refueled from slot ", n)
