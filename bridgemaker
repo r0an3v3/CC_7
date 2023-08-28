@@ -2,7 +2,6 @@
 --on switch based on fuel level
 --fills up "holes" based on length to make bridge
 --actual width is length+1
---slots 1-4 hold fuel, 5-16 hold blocks
 
 local length = 4
 
@@ -26,15 +25,24 @@ function turnCheck(b)
 end
 
 function filler()
-    for i=5,16 do
+    for i=1,16 do
         turtle.select(i)
-        if turtle.placeDown() then
-            print("placing from ", i)
-            break
-        elseif i==16 and turtle.placeDown() == false then
-            printError("no more blocks for placing")
-            error()
+        local data = turtle.getItemDetail()
+        if data then
+            if string.find(data.name, "lava") or string.find(data.name, "coal") then
+                print("this is not a block")
+            else
+                if turtle.placeDown() then
+                    print("placing from ", i)
+                    break
+                elseif i==16 and turtle.placeDown() == false then
+                    printError("no more blocks for placing")
+                    error()
+                end
+            end
         end
+
+
     end
 end
 
