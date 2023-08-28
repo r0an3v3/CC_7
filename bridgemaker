@@ -1,4 +1,4 @@
---v0.5
+--v0.6
 --on switch based on fuel level
 --fills up "holes" based on length to make bridge
 --actual width is length+1
