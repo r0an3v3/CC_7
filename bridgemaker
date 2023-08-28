@@ -27,7 +27,7 @@ end
 function filler()
     for i=5,16 do
         turtle.select(i)
-        if turtle.placeUp() then
+        if turtle.placeDown() then
             print("placing from ", i)
             break
         end
