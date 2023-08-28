@@ -5,11 +5,12 @@
 local length = 4
 
 function moveCheck()
-    if turtle.forward() == false then
+    if turtle.detect() then
         printError("something in the way")
         error()
     else
         print("moving forward")
+        turtle.forward()
     end
 end
 
@@ -29,13 +30,14 @@ function filler(a)
     end
 
     moveCheck()
-    moveCheck()
 
     if a==1 then
         turtle.turnLeft()
     else
         turtle.turnRight()
     end
+
+    moveCheck()
 end
 
 while true do
