@@ -1,4 +1,3 @@
---v0.1
 --on switch based on fuel level
 --fills up "holes" based on length to make bridge
 --slots 1-4 hold fuel, 5-16 hold blocks
@@ -29,6 +28,7 @@ function filler(a)
         turtle.turnLeft()
     end
 
+    moveCheck()
     moveCheck()
 
     if a==1 then
