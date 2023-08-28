@@ -14,7 +14,20 @@ function moveCheck()
     end
 end
 
+function turnCheck(b)
+    if b == 1 then
+        turtle.turnLeft()
+    else
+        turtle.turnRight()
+    end
+end
+
 function filler(a)
+    if a==1 then
+        turtle.turnRight()
+    else
+        turtle.turnLeft()
+    end
     for i=5,16 do
         turtle.select(i)
         if turtle.placeUp() then
@@ -22,21 +35,6 @@ function filler(a)
             break
         end
     end
-
-    if a==1 then
-        turtle.turnRight()
-    else
-        turtle.turnLeft()
-    end
-
-    moveCheck()
-
-    if a==1 then
-        turtle.turnLeft()
-    else
-        turtle.turnRight()
-    end
-
     moveCheck()
 end
 
@@ -48,12 +46,15 @@ while true do
         for h=1,length do
             filler(1)
         end
-
+        turnCheck(1)
+        moveCheck()
+        turnCheck(1)
         for j=1,length do
             filler(2)
         end
-
+        turnCheck(2)
         moveCheck()
+        turnCheck(2)
     end
 
     print("attempting to refuel")
