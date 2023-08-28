@@ -15,6 +15,7 @@ function moveCheck()
 end
 
 function turnCheck(b)
+    print("turning!")
     if b == 1 then
         turtle.turnLeft()
     else
