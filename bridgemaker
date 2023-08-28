@@ -23,7 +23,7 @@ function turnCheck(b)
     end
 end
 
-function filler(a)
+function filler()
     for i=5,16 do
         turtle.select(i)
         if turtle.placeUp() then
@@ -38,22 +38,23 @@ while true do
         
         print("fuelcount: ", turtle.getFuelLevel())
 
-        turtle.turnRight()
+        turnCheck(2)
 
-        for h=1,length do
-            filler(1)
-            moveCheck()
+        for h=1,length do   --do this for length 
+            filler()   --place block
+            moveCheck() --move forward or stop program
         end
-        turnCheck(1)
-        moveCheck()
-        turnCheck(1)
+        
+        turnCheck(1)    --turn left
+        moveCheck()     --move forward
+        turnCheck(1)    --turn left
+
         for j=1,length do
-            filler(2)
+            filler()
             moveCheck()
         end
         turnCheck(2)
         moveCheck()
-        turnCheck(2)
     end
 
     print("attempting to refuel")
