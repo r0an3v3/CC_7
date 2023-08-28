@@ -1,6 +1,7 @@
---v0.3
+--v0.4
 --on switch based on fuel level
 --fills up "holes" based on length to make bridge
+--actual width is length+1
 --slots 1-4 hold fuel, 5-16 hold blocks
 
 local length = 4
@@ -31,6 +32,8 @@ function filler()
             print("placing from ", i)
             break
         end
+        printError("no more blocks for placing")
+        error()
     end
 end
 
