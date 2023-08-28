@@ -1,4 +1,4 @@
---v0.2
+--v0.3
 --on switch based on fuel level
 --fills up "holes" based on length to make bridge
 --slots 1-4 hold fuel, 5-16 hold blocks
