@@ -1,0 +1,70 @@
+--v0.1
+--on switch based on fuel level
+--fills up "holes" based on length to make bridge
+--slots 1-4 hold fuel, 5-16 hold blocks
+
+local length = 4
+
+function moveCheck()
+    if turtle.forward() == false then
+        printError("something in the way")
+        error()
+    else
+        print("moving forward")
+    end
+end
+
+function filler(a)
+    for i=5,16 do
+        turtle.select(i)
+        if turtle.placeUp() then
+            print("placing from ", i)
+            break
+        end
+    end
+
+    if a==1 then
+        turtle.turnRight()
+    else
+        turtle.turnLeft()
+    end
+
+    moveCheck()
+
+    if a==1 then
+        turtle.turnLeft()
+    else
+        turtle.turnRight()
+    end
+end
+
+while true do
+    while turtle.getFuelLevel() > 10 do
+        
+        print("fuelcount: ", turtle.getFuelLevel())
+
+        for h=1,length do
+            filler(1)
+        end
+
+        for j=1,length do
+            filler(2)
+        end
+
+        moveCheck()
+    end
+
+    print("attempting to refuel")
+
+    for n=1,4 do
+        turtle.select(n)
+        if turtle.refuel() then
+            print("refueled from slot ", n)
+            break
+        end
+    end
+    if turtle.getFuelLevel() < 10 then
+        printError("out of fuel, shutting down")
+        error()
+    end
+end
