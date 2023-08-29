@@ -1,4 +1,4 @@
---v0.5
+--v0.6
 
 local power = turtle.getFuelLevel() > 10
 
@@ -30,7 +30,7 @@ function dump()
             if item then
                 if isfuel(item.name) then
                     print("fuel, skipping")
-                    break
+                    uu=#fuel
                 end
             end
         end
