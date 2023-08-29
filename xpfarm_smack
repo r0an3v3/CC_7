@@ -1,4 +1,4 @@
---v0.3
+--v0.4
 
 local power = turtle.getFuelLevel() > 10
 
@@ -26,8 +26,11 @@ end
 function dump()
     for b=1,16 do
         for uu=1,#fuel do
-            if isfuel(turtle.getItemDetail(b).name, fuel[uu]) then
-                print("fuel, skipping")
+            local item = turtle.getItemDetail(b)
+            if item then
+                if isfuel(item.name, fuel[uu]) then
+                    print("fuel, skipping")
+                end
             end
         end
         turtle.dropDown()
