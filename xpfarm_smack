@@ -1,4 +1,4 @@
---v0.7
+--v0.8
 
 local power = turtle.getFuelLevel() > 10
 
@@ -32,10 +32,12 @@ function dump()
                 if isfuel(item.name) then
                     print("fuel, skipping")
                     uu=#fuel
+                else
+                    print("dropping slot ", b)
+                    turtle.dropDown()
                 end
             end
         end
-        turtle.dropDown()
     end
 end
 
@@ -57,10 +59,10 @@ end
 
 while power do
 
-    turtle.attack()
+    if turtle.attack() == false then
+        dump()
+    end
     turtle.suck()
-
-    dump()
 
     power = turtle.getFuelLevel() > 10
 
