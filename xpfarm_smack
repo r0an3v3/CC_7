@@ -1,4 +1,4 @@
---v0.1
+--v0.2
 
 local power = turtle.getFuelLevel() > 10
 
@@ -42,6 +42,8 @@ function trygas()
     end
     return false
 end
+
+trygas()
 
 while power do
 
