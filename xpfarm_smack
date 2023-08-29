@@ -43,7 +43,10 @@ function trygas()
     return false
 end
 
-trygas()
+if power == false then
+    print("no fuel, attempting refuel")
+    trygas()
+end
 
 while power do
 
