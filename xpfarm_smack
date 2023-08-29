@@ -25,12 +25,12 @@ end
 
 function dump()
     for b=1,16 do
+        turtle.select(b)
         for uu=1,#fuel do
             local item = turtle.getItemDetail(b)
             if item then
                 if isfuel(item.name) then
                     print("fuel, skipping")
-                    uu=#fuel
                 end
             end
         end
