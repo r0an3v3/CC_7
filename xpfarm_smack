@@ -1,4 +1,4 @@
---v0.2
+--v0.3
 
 local power = turtle.getFuelLevel() > 10
 
@@ -23,13 +23,15 @@ function gas()
     end
 end
 
-function invfull()
+function dump()
     for b=1,16 do
-        if turtle.getItemSpace(b) > 0 then
-            return false
+        for uu=1,#fuel do
+            if isfuel(turtle.getItemDetail(b).name, fuel[uu]) then
+                print("fuel, skipping")
+            end
         end
+        turtle.dropDown()
     end
-    return true
 end
 
 function trygas()
@@ -53,16 +55,7 @@ while power do
     turtle.attack()
     turtle.suck()
 
-    if invfull() then
-        for e=1,16 do
-            turtle.select(e)
-            if isfuel(turtle.getItemDetail().name) then
-                print("don't dump, this is fuel")
-            else
-                turtle.dropDown()
-            end
-        end
-    end
+    dump()
 
     power = turtle.getFuelLevel() > 10
 
