@@ -1,0 +1,69 @@
+--v0.1
+
+local power = turtle.getFuelLevel() > 10
+
+local fuel = {"coal", "charcoal", "lava"}
+
+function isfuel(c)
+    for d=1,#fuel do
+        if string.find(c, fuel[d]) then
+            return true
+        else
+            return false
+        end
+    end
+end
+
+function gas()
+    for a=1,16 do
+        turtle.select(a)
+        if turtle.refuel() then
+            print("refueled from ", a)
+        end
+    end
+end
+
+function invfull()
+    for b=1,16 do
+        if turtle.getItemSpace(b) > 0 then
+            return false
+        end
+    end
+    return true
+end
+
+function trygas()
+    for m=1,16 do
+        turtle.select(m)
+        if turtle.refuel(m) then
+            print("refueled from ", m)
+            return true
+        end
+    end
+    return false
+end
+
+while power do
+
+    turtle.attack()
+    turtle.suck()
+
+    if invfull() then
+        for e=1,16 do
+            turtle.select(e)
+            if isfuel(turtle.getItemDetail().name) then
+                print("don't dump, this is fuel")
+            else
+                turtle.dropDown()
+            end
+        end
+    end
+
+    power = turtle.getFuelLevel() > 10
+
+    if power == false then
+        print("low fuel, attempting refuel")
+        trygas()
+    end
+
+end
