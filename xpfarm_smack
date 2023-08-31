@@ -1,4 +1,4 @@
---v0.8
+--v0.9
 
 local power = turtle.getFuelLevel() > 10
 
@@ -24,19 +24,22 @@ function gas()
 end
 
 function dump()
+
+--go through each slot
+--if it is fuel, skip it and move to next slot
     for b=1,16 do
         turtle.select(b)
         for uu=1,#fuel do
             local item = turtle.getItemDetail(b)
             if item then
                 if isfuel(item.name) then
-                    print("fuel, skipping")
-                    uu=#fuel
+                    print("skipping slot ", b)
+                    break
                 else
-                    print("dropping slot ", b)
+                    print("dumping slot ", b)
                     turtle.dropDown()
                 end
-            end
+            end 
         end
     end
 end
