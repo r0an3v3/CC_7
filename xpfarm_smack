@@ -1,4 +1,4 @@
---v0.9
+--v0.9.1
 
 local power = turtle.getFuelLevel() > 10
 
@@ -10,15 +10,6 @@ function isfuel(c)
             return true
         else
             return false
-        end
-    end
-end
-
-function gas()
-    for a=1,16 do
-        turtle.select(a)
-        if turtle.refuel() then
-            print("refueled from ", a)
         end
     end
 end
@@ -56,7 +47,7 @@ function trygas()
 end
 
 if power == false then
-    print("no fuel, attempting refuel")
+    print("low fuel, attempting refuel")
     trygas()
 end
 
