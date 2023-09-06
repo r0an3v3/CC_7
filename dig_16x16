@@ -1,4 +1,4 @@
---v0.03
+--v0.04
 --dig a 16x16 hole
 --stop when inventory is full
 --place turtle at the bottome-left corner of a chunk
@@ -67,7 +67,9 @@ while powerswitch do
       nextline(c)
     end
     resetpos()
-    checkfullbag()
+    if checkfullbag() then
+      return
+    end
   end
   print("attempting refuel")
   for d=1,16 do
