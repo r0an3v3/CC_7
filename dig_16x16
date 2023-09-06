@@ -1,0 +1,75 @@
+--dig a 16x16 hole
+--stop when inventory is full
+--place turtle at the bottome-left corner of a chunk
+--turtle digs straight line and turns right at the end
+
+function digline()
+  for b=1,15 do
+    turtle.dig()
+    turtle.forward()
+  end
+end
+
+function nextline(a)
+  if a%2==0 then
+    turtle.turnLeft()
+  else
+    turtle.turnRight()
+  turtle.dig()
+  turtle.forward()
+  if a%2==0 then
+    turtle.turnLeft()
+  else
+    turtle.turnRight()
+end
+
+function resetpos()
+  turtle.turnRight()
+  for d=1,15 do
+    turtle.forward()
+  end
+  turtle.turnRight()
+  turtle.digDown()
+  turtle.down()
+end
+
+function checkfullbag()
+  local fullslots = 0
+  for e=1,16 do
+    turtle.select(e)
+    if turtle.getItemCount(e) > 1 then
+      if turtle.getItemSpace() == 0 then
+        fullslots = fullslots + 1
+      end
+    else
+      if turtle.getItemSpace() == 0 then
+        fullslots = fullslots + 1
+      end
+    end
+  end
+  if fullslots == 16 then
+    print("bag full, stopping")
+    return true
+  else
+    return false
+end
+  
+while true do
+  while turtle.getFuelLevel() > 10 do
+    for c=1,15 do
+      digline()
+      nextline(c)
+    end
+    resetpos()
+    checkfullbag()
+  end
+  print("attempting refuel")
+  for d=1,16 do
+    turtle.select(d)
+    if turtle.refuel() then
+      print("refueled from ", d)
+      break
+    end
+  end
+end
+
