@@ -1,11 +1,11 @@
---v0.05
---dig a 16x16 hole
+--v0.06
+--dig a chunk-wide hole
 --stop when inventory is full
 --place turtle at the bottome-left corner of a chunk
 --turtle digs straight line and turns right at the end
 
 function digline()
-  for b=1,15 do
+  for b=1,16 do
     turtle.dig()
     turtle.forward()
   end
