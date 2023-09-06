@@ -5,8 +5,9 @@
 
 local scripturl = { "https://raw.githubusercontent.com/r0an3v3/CC_7/main/bridgemaker",
                     "https://raw.githubusercontent.com/r0an3v3/CC_7/main/xpfarm_smack",
-                    "https://raw.githubusercontent.com/r0an3v3/CC_7/main/update_scripts" }
-local scriptname = { "bridgemaker.lua", "xpfarm_smack.lua", "update_scripts.lua" }
+                    "https://raw.githubusercontent.com/r0an3v3/CC_7/main/update_scripts",
+                    "https://raw.githubusercontent.com/r0an3v3/CC_7/main/dig_16x16" }
+local scriptname = { "bridgemaker.lua", "xpfarm_smack.lua", "update_scripts.lua", "dig_16x16" }
 
 shell.run("rm *.lua")
 
