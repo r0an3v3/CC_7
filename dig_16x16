@@ -1,4 +1,4 @@
---v0.04
+--v0.05
 --dig a 16x16 hole
 --stop when inventory is full
 --place turtle at the bottome-left corner of a chunk
@@ -12,18 +12,22 @@ function digline()
 end
 
 function nextline(a)
+    
   if a%2==0 then
     turtle.turnLeft()
   else
     turtle.turnRight()
   end
+
   turtle.dig()
   turtle.forward()
+  
   if a%2==0 then
     turtle.turnLeft()
   else
     turtle.turnRight()
   end
+
 end
 
 function resetpos()
@@ -71,14 +75,18 @@ while powerswitch do
       return
     end
   end
+
   print("attempting refuel")
+  
   for d=1,16 do
     turtle.select(d)
+    
     if turtle.refuel() then
       print("refueled from ", d)
-    else
-      powerswitch = false
+      break
     end
+    
+    powerswitch = false
   end
-end
 
+end
