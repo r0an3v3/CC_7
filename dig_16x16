@@ -5,7 +5,7 @@
 --turtle digs straight line and turns right at the end
 
 function digline()
-  for b=1,16 do
+  for b=1,15 do
     turtle.dig()
     turtle.forward()
   end
@@ -66,9 +66,11 @@ local powerswitch = true
 
 while powerswitch do
   while turtle.getFuelLevel() > 10 do
-    for c=1,15 do
+    for c=1,16 do
       digline()
-      nextline(c)
+      if c<16 then
+        nextline(c)
+      end
     end
     resetpos()
     if checkfullbag() then
