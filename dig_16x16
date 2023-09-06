@@ -1,3 +1,4 @@
+--v0.01
 --dig a 16x16 hole
 --stop when inventory is full
 --place turtle at the bottome-left corner of a chunk
