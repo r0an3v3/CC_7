@@ -1,0 +1,20 @@
+--update_scripts
+--delete all scripts on turtle
+--retrieve scripts from github acc
+
+
+local scripturl = { "https://raw.githubusercontent.com/r0an3v3/CC_7/main/bridgemaker",
+                    "https://raw.githubusercontent.com/r0an3v3/CC_7/main/xpfarm_smack",
+                    "https://raw.githubusercontent.com/r0an3v3/CC_7/main/update_scripts" }
+local scriptname = { "bridgemaker.lua", "xpfarm_smack.lua", "update_scripts.lua" }
+
+shell.run("rm *.lua")
+
+for i=1,#scripturl do
+  shell.run("wget",scripturl[i],scriptname[i])
+  print("downloaded ",scriptname[i])
+end
+
+
+shell.run("clear")
+print("updated ",#scriptname," scripts")
