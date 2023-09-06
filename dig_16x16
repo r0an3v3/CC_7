@@ -54,8 +54,10 @@ function checkfullbag()
   else
     return false
 end
-  
-while true do
+
+local powerswitch = true
+
+while powerswitch do
   while turtle.getFuelLevel() > 10 do
     for c=1,15 do
       digline()
@@ -70,6 +72,8 @@ while true do
     if turtle.refuel() then
       print("refueled from ", d)
       break
+    else
+      powerswitch = false
     end
   end
 end
