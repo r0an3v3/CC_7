@@ -74,7 +74,6 @@ while powerswitch do
     turtle.select(d)
     if turtle.refuel() then
       print("refueled from ", d)
-      break
     else
       powerswitch = false
     end
