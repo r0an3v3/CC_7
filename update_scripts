@@ -10,13 +10,10 @@ local scripturl = { "https://raw.githubusercontent.com/r0an3v3/CC_7/main/bridgem
                     "https://raw.githubusercontent.com/r0an3v3/CC_7/main/dig_16x16" }
 local scriptname = { "bridgemaker.lua", "xpfarm_smack.lua", "update_scripts.lua", "dig_16x16.lua" }
 
-shell.run("rm *.lua")
+shell.run("rm", "*.lua")
 
 for i=1,#scripturl do
   shell.run("wget",scripturl[i],scriptname[i])
   print("downloaded ",scriptname[i])
 end
-
-
-shell.run("clear")
 print("updated ",#scriptname," scripts")
