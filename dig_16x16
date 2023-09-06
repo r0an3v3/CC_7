@@ -53,6 +53,7 @@ function checkfullbag()
     return true
   else
     return false
+  end
 end
 
 local powerswitch = true
