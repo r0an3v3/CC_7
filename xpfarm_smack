@@ -11,6 +11,7 @@ function isfuel(c)
         if string.find(c, fuel[d]) then
             strike = 0
             print("this is fuel!")
+            return true
         else
             strike = strike + 1
             if strike == 3 then
@@ -30,7 +31,7 @@ function dump()
         for uu=1,#fuel do
             local item = turtle.getItemDetail(b)
             if item then
-                if isfuel(item.name) then
+                if isfuel(item.name) == true then
                     print("item is ", item.name)
                     print("skipping slot ", b)
                     break
