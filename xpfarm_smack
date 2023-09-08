@@ -5,14 +5,18 @@ local power = turtle.getFuelLevel() > 10
 local fuel = {"coal", "charcoal", "lava"}
 
 function isfuel(c)
+    local strike = 0
     for d=1,#fuel do
         print(c, fuel[d])
         if string.find(c, fuel[d]) then
+            strike = 0
             print("this is fuel!")
-            return true
         else
-            print("not fuel!")
-            return false
+            strike = strike + 1
+            if strike == 3 then
+                print("not fuel!")
+                return false
+            end
         end
     end
 end
