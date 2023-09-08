@@ -6,6 +6,7 @@ local fuel = {"coal", "charcoal", "lava"}
 
 function isfuel(c)
     for d=1,#fuel do
+        print(c, fuel[d])
         if string.find(c, fuel[d]) then
             print("this is fuel!")
             return true
