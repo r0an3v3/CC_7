@@ -1,0 +1,8 @@
+sleep(1)
+print(" ")
+print("time to make a miracle happen")
+
+turtle.refuel()
+while true do
+  turtle.dig()
+end
