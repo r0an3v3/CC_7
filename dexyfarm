@@ -1,3 +1,4 @@
+--v1
 --edit the number here to change length
 local length = 16
  
@@ -44,9 +45,10 @@ function stopper()
     local block, data = turtle.inspectUp()
     if block then
         if data.name == "terracotta" then
-        return true
-    else
-        return false
+          return true
+        else
+          return false
+        end
     end
 end
  
