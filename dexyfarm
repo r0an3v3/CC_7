@@ -1,0 +1,75 @@
+--edit the number here to change length
+local length = 16
+ 
+ 
+function uTurn(a)
+    if a==0 then
+        turtle.turnRight()
+    else
+        turtle.turnLeft()
+    end
+    turtle.forward()
+    if a==0 then
+        turtle.turnRight()
+    else
+        turtle.turnLeft()
+    end
+end
+ 
+function checkWheat()
+    local wheat, data = turtle.detectDown()
+    if wheat then
+        if data.state.age == 7 then
+            print("she's ripe <:")
+            return true
+        else
+            print("wheat's too young u sicko")
+            return false
+        end
+    end
+end
+ 
+function farmy()
+  for j=1,length-1 do
+        if checkWheat() then
+            turtle.digDown()
+        end
+        if j < length-1 then
+            turtle.forward()
+        end
+    end
+end
+
+function stopper()
+    local block, data = turtle.inspectUp()
+    if local then
+        if data.name == "terracotta" then
+        return true
+    else
+        return false
+    end
+end
+ 
+print("dexy time")
+for i=1,16 do
+    if turtle.refuel() then
+        print("refueled from slot ", i)
+    end
+end
+ 
+while turtle.getFuelLevel() > 5 do
+    farmy()
+    uTurn(0)
+    farmy()
+    uTurn(0)
+    if stopper() then
+      print("found stopper, stopping...")
+      break
+    else
+      print("looping...")
+    end
+end
+ 
+if turtle.getFuelLevel() < 5 then
+    print("outta gas")
+end
