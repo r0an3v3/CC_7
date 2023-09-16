@@ -18,13 +18,13 @@ function uTurn(a)
 end
  
 function checkWheat()
-    local wheat, data = turtle.detectDown()
+    local wheat, data = turtle.inspectDown()
     if wheat then
         if data.state.age == 7 then
             print("she's ripe <:")
             return true
         else
-            print("wheat's too young u sicko")
+            print("she's too young u nasty")
             return false
         end
     end
