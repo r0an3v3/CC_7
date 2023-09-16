@@ -14,7 +14,7 @@ function isfuel(c)
             return true
         else
             strike = strike + 1
-            if strike == 3 then
+            if strike == #fuel then
                 print("not fuel!")
                 return false
             end
