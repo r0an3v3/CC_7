@@ -42,7 +42,7 @@ end
 
 function stopper()
     local block, data = turtle.inspectUp()
-    if local then
+    if block then
         if data.name == "terracotta" then
         return true
     else
