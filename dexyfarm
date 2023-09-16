@@ -4,13 +4,13 @@ local length = 16
  
  
 function uTurn(a)
-    if a==0 then
+    if a=="right" then
         turtle.turnRight()
     else
         turtle.turnLeft()
     end
     turtle.forward()
-    if a==0 then
+    if a=="right" then
         turtle.turnRight()
     else
         turtle.turnLeft()
@@ -61,9 +61,10 @@ end
  
 while turtle.getFuelLevel() > 5 do
     farmy()
-    uTurn(0)
+    uTurn("right")
     farmy()
-    uTurn(0)
+    uTurn("right")
+
     if stopper() then
       print("found stopper, stopping...")
       break
