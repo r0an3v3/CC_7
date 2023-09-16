@@ -2,7 +2,7 @@
 
 local power = turtle.getFuelLevel() > 10
 
-local fuel = {"coal", "charcoal", "lava"}
+local fuel = {"coal", "charcoal", "lava", "coke"}
 
 function isfuel(c)
     local strike = 0
