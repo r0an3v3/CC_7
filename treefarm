@@ -33,7 +33,6 @@ function bonemeal()
         end
         print("end of if2")
       end
-    end
     print("no more bonemeal!")
     os.exit()
   else
