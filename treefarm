@@ -30,20 +30,19 @@ function bonemeal()
             bonemealFound = true
             a = 16
             break
-          end
-          print("end of if2")
         end
-      end
-      print("no more bonemeal!")
-      os.exit()
-    else
-      turtle.place()
-      if turtle.getItemCount() == 0 then
-        bonemealFound = false
+        print("end of if2")
       end
     end
-  print("end of loop1")
+    print("no more bonemeal!")
+    os.exit()
+  else
+    turtle.place()
+    if turtle.getItemCount() == 0 then
+      bonemealFound = false
+    end
   end
+  print("end of loop1")
 end
 
 function chopchop()
