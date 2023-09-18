@@ -35,6 +35,9 @@ function bonemeal()
         end
     else
       turtle.place()
+      if turtle.getItemCount() == 0 then
+        bonemealFound == false
+      end
     end
   print("end of loop1")
   end
