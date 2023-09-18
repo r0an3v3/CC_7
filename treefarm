@@ -10,7 +10,7 @@ function checkFront()
   if something then
     if string.find(data.name, "sapling") then 
       return "sapling"
-    else if string.find(data.name, "log") then
+    elseif string.find(data.name, "log") then
       return "log"
     else
       return false
