@@ -50,7 +50,7 @@ function chopchop()
     turtle.dig()
   end
   for a=1,16 do
-    turtle.select()
+    turtle.select(a)
     local item, data = turtle.getItemDetail()
     if item then
       if string.find(data.name, "sapling") then
