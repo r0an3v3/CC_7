@@ -33,6 +33,7 @@ function bonemeal()
           end
           print("end of if2")
         end
+      end
     else
       turtle.place()
       if turtle.getItemCount() == 0 then
@@ -46,6 +47,15 @@ end
 function chopchop()
   while checkFront() == "log" do
     turtle.dig()
+  end
+  for a=1,16 do
+    turtle.select()
+    local item, data = turtle.getItemDetail()
+    if item then
+      if string.find(data.name, "sapling") then
+        turtle.place()
+      end
+    end
   end
 end
 
