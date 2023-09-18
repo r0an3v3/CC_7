@@ -52,8 +52,10 @@ function chopchop()
   for a=1,16 do
     turtle.select(a)
     local data = turtle.getItemDetail()
-    if string.find(data.name, "sapling") then
-        turtle.place()
+    if data then
+        if string.find(data.name, "sapling") then
+          turtle.place()
+        end
     end
   end
 end
