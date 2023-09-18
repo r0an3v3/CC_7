@@ -21,7 +21,7 @@ function bonemeal()
   local stillSapling = checkFront() == "sapling"
   local bonemealFound = false
   while stillSapling do
-    if bonemealFound == false do
+    if bonemealFound == false then
       for a=1,16 do
         turtle.select()
         local item, data = turtle.getItemDetail()
