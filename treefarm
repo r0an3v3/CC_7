@@ -35,6 +35,8 @@ function bonemeal()
           print("end of if2")
         end
       end
+      print("no more bonemeal!")
+      os.exit()
     else
       turtle.place()
       if turtle.getItemCount() == 0 then
