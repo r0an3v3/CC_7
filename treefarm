@@ -1,0 +1,52 @@
+-v1
+--check if sapling
+--bonemeal if true
+--chop if oak-log
+
+local stayOn = turtle.getFuelLevel() > 10
+
+function checkFront()
+  local something, data = turtle.inspect()
+  if something then
+    if string.find(data.name, "sapling") then 
+      return "sapling"
+    else if string.find(data.name, "log") then
+      return "log"
+    else
+      return false
+  end
+end
+
+function bonemeal()
+  local stillSapling = checkFront() == "sapling"
+  local bonemealFound = false
+  while stillSapling do
+    if bonemealFound == false do
+      for a=1,16 do
+        turtle.select()
+        local item, data = turtle.getItemDetail()
+        if item then
+          if string.find(data.name, "bonemeal") then
+            bonemealFound = true
+            a = 16
+            break
+          end
+          print("end of if2")
+        end
+    else
+      turtle.place()
+    end
+  print("end of loop1")
+  end
+end
+
+function chopchop()
+  while checkFront() == "log" do
+    turtle.dig()
+  end
+end
+
+while stayOn do
+  bonemeal()
+  chopchop()
+end
