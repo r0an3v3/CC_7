@@ -19,30 +19,30 @@ function checkFront()
 end
 
 function bonemeal()
-    local stillSapling = checkFront() == "sapling"
-    local bonemealFound = false
-    while stillSapling do
-        if bonemealFound == false then
-            for a=1,16 do
-                turtle.select(a)
-                local data = turtle.getItemDetail()
-                if string.find(data.name, "bonemeal") then
-                    bonemealFound = true
-                    a = 16
-                    break
-                end
-            print("end of if2")
-            end
-            print("no more bonemeal!")
-            os.exit()
-        else
-            turtle.place()
-            if turtle.getItemCount() == 0 then
-                bonemealFound = false
-            end
+  local stillSapling = checkFront() == "sapling"
+  local bonemealFound = false
+  while stillSapling do
+    if bonemealFound == false then
+      for a=1,16 do
+        turtle.select(a)
+        local data = turtle.getItemDetail()
+        if string.find(data.name, "bonemeal") then
+          bonemealFound = true
+          a = 16
+          break
         end
-        print("end of loop1")
+        print("end of if2")
+      end
+      print("no more bonemeal!")
+      os.exit()
+    else
+      turtle.place()
+      if turtle.getItemCount() == 0 then
+        bonemealFound = false
+      end
     end
+    print("end of loop1")
+  end
 end
 
 function chopchop()
@@ -53,9 +53,9 @@ function chopchop()
     turtle.select(a)
     local data = turtle.getItemDetail()
     if data then
-        if string.find(data.name, "sapling") then
-          turtle.place()
-        end
+      if string.find(data.name, "sapling") then
+        turtle.place()
+      end
     end
   end
 end
