@@ -28,6 +28,8 @@ function bonemeal()
           bonemealFound = true
           a = 16
           break
+        else
+          print("nothing")
         end
         print("end of if2")
       end
