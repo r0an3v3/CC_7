@@ -3,8 +3,6 @@
 --bonemeal if true
 --chop if oak-log
 
-local stayOn = turtle.getFuelLevel() > 10
-
 function checkFront()
   local something, data = turtle.inspect()
   if something then
@@ -60,7 +58,7 @@ function chopchop()
   end
 end
 
-while stayOn do
+while turtle.getFuelLevel() > 10 do
   bonemeal()
   chopchop()
 end
