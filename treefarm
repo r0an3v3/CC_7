@@ -31,7 +31,7 @@ function bonemeal()
         else
           print("nothing")
         end
-        print("end of if2")
+        break
       end
       print("no more bonemeal!")
       os.exit()
